@@ -1,0 +1,15 @@
+{
+  "brain": {
+    "unit": {
+      "ssn": "xx-1234-45",
+      "owner": "Lamassu, Inc. / Trofa / Portugal"
+    },
+    "locale": {
+      "currency": "USD",
+      "localeInfo": {
+        "primaryLocale": "en-US",
+        "primaryLocales": ["en-US"]
+      }
+    }
+  }
+}
