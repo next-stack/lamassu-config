@@ -1,0 +1,19 @@
+{
+  "exchanges" : {
+    "settings": {
+      "commission": 1.0
+    },
+    "plugins" : {
+      "current": {
+        "ticker": "bitpay_ticker",
+        "trade": "bitstamp_trade",
+        "transfer": "blockchain"
+      },
+      "settings": {
+        "bitpay_ticker": {},
+        "bitstamp_trade": {"currency": "USD", "key": "test", "secret": "test", "clientId": "test" },
+        "blockchain" : {}
+      }
+    }
+  }
+}
