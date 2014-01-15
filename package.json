@@ -7,15 +7,9 @@
   },
   "main": "lib/main",
   "dependencies": {
-    "deepmerge": "~0.2.7",
-    "pg": "~2.11.0"
+    "deepmerge": "~0.2.7"
   },
-  "devDependencies": {
-    "tap": "~0.4.8"
-  },
-  "scripts": {
-    "test": "tap ./test"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">=0.8.0"
   }
