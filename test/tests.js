@@ -4,7 +4,7 @@ var test = require('tap').test
 var config = require('../lib/main');
 
 test('Load config', function(t){
-  config.load('test', function(err, config){
+  config.load(function(err, config) {
     t.equal(err, null, 'There should be no error.')
     t.notEqual(config, null, 'Config should  have been read.');
     t.notEqual(config.exchanges, null, 'Exchanges config should be included.');
