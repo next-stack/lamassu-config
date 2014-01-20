@@ -5,12 +5,6 @@ var config = require('../lib/main');
 
 test('Load config', function(t){
   config.load(function(err, result) {
-
-    console.log(err);
-    console.log(result);
-
-
-
     t.equal(err, null, 'There should be no error.');
     t.ok(result.ok, 'Result should be ok.');
     t.notEqual(result.config, null, 'Config should  have been read.');
