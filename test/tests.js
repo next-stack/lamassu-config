@@ -15,5 +15,7 @@ test('Load config', function(t){
     t.notEqual(result.config.exchanges.plugins, null, 'Exchanges should have plugins.');
     t.notEqual(result.config.exchanges.plugins.settings, null, 'Exchanges plugins should have settings.');
     t.end();
+
+    config.end();
   });
 });
