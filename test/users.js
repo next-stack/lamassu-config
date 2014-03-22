@@ -6,26 +6,23 @@ var con = 'psql://lamassu:lamassu@localhost/lamassu';
 
 
 test('Load config', function(t) {
-  t.plan(4);
+  t.plan(3);
 
   var config = new LamassuConfig(con);
 
   var user = 'test';
   var pwd = 'test';
 
-  config.saveUser(user, pwd, function (err, res) {
-    t.equal(err, null, 'There should be no error.');
-    t.equal(res.rowCount, 1, 'The INSERT op should return 1');
+  config.saveUser(user, pwd, function (err) {
+    t.equal(err, null, 'There should be INSERT op.');
 
-    config.authenticateUser(user, pwd, function (_err, _res) {
+    config.authenticateUser(user, pwd, function (_err, auth) {
       t.equal(_err, null, 'There should be no error.');
-      t.equal(_res > 0, true, 'The SELECT op should return the user id');
+      t.equal(auth, true, 'The SELECT op should return true');
     });
   });
 
   t.on('end', function () {
-    setTimeout(function () {
-      config.end();
-    }, 1000);
+    config.end();
   });
 });
