@@ -6,7 +6,7 @@ var con = 'psql://lamassu:lamassu@localhost/lamassu';
 
 
 test('Auth user - create an user & auth, next try auth an user isn\'t exist', function(t) {
-  t.plan(8);
+  t.plan(9);
 
   var config = new LamassuConfig(con);
 
@@ -19,14 +19,15 @@ test('Auth user - create an user & auth, next try auth an user isn\'t exist', fu
 
     config.authenticateUser(user, pwd, function (err, auth) {
       t.equal(err, null, 'There should be no error.');
-      t.equal(auth, true, 'There should only accept an authenticate user.');
+      t.ok(auth, 'There should only accept an authenticate user.');
+      t.equal(auth.username, user, 'Username should be correct');
 
       config.updatePassword(user, newPwd, function(err) {
         t.equal(err, null, 'There should be no error when updating password.');
 
         config.authenticateUser(user, newPwd, function (err, auth) {
           t.equal(err, null, 'There should be no error.');
-          t.equal(auth, true, 'Newly changed password should authenticate correctly');
+          t.ok(auth, 'Newly changed password should authenticate correctly');
         });
       });
     });
@@ -34,7 +35,7 @@ test('Auth user - create an user & auth, next try auth an user isn\'t exist', fu
 
   config.authenticateUser('bad_user', 'bad_pwd', function (err, auth) {
     t.equal(err, null, 'There should be no error.');
-    t.equal(auth, false, 'There should return false for the no auth user.');
+    t.equal(auth, null, 'it should return null for invalid authentication');
   });
 
   t.on('end', function () {
