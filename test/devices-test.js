@@ -7,7 +7,7 @@ var con = 'psql://lamassu:lamassu@localhost/lamassu';
 var authorized = 'CB:3D:78:49:03:39:BA:47:0A:33:29:3E:31:25:F7:C6:4F:74:71:D7';
 
 test('authorize and check authorization', function(t){
-  var config = new LamassuConfig(con, 250);
+  var config = new LamassuConfig(con, 1);
 
   t.plan(18);
 
@@ -66,7 +66,7 @@ test('authorize and check authorization', function(t){
           t.equal(err.message, 'Token not found', 'Token should be not found');
         });
       });
-    }, 500);
+    }, 2000);
   });
 
   t.on('end', function () {
