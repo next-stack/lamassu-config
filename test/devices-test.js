@@ -63,7 +63,7 @@ test('authorize and check authorization', function(t){
 
         config.pair(token, authorized, 'restaurant', function(err) {
           t.ok(err, 'There should be an error when trying to pair with an expired token');
-          t.equal(err.message, 'Token not found', 'Token should be not found');
+          t.equal(err.message, 'Token expired or not found', 'Token should be not found');
         });
       });
     }, 2000);
