@@ -10,11 +10,11 @@ var duplicate = 'FF:EE:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99:4F:74:71:D7';
 test('authorize and check authorization', function(t){
   var config = new LamassuConfig(con, 1);
 
-  t.plan(21);
+  t.plan(22);
 
   config.isAuthorized('AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99:4F:74:71:D7', function(err, authorized) {
     t.equal(err, null, 'There should be no error.');
-    t.equal(authorized, false, 'device should not be authorized');
+    t.equal(authorized, null, 'device should not be authorized');
   });
 
   // Operator starts a pairing in the admin panel. Pairing token is created
@@ -26,16 +26,17 @@ test('authorize and check authorization', function(t){
     config.pair(token, authorized, 'bar', function(err) {
       t.equal(err, null, 'There should be no error');
 
-      config.isAuthorized(authorized, function(err, isAuthorized) {
+      config.isAuthorized(authorized, function (err, device) {
         t.equal(err, null, 'There should be no error when checking authorization');
-        t.equal(isAuthorized, true, 'device just authorized should come up as authorized');
+        t.ok(device, 'device just authorized should come up as authorized');
+        t.equal(device.fingerprint, authorized);
 
         config.deauthorize(authorized, function(err) {
           t.equal(err, null, 'There should be no error when deauthorizing');
 
           config.isAuthorized(authorized, function(err, authorized) {
             t.equal(err, null, 'There should be no error when checking authorization');
-            t.equal(authorized, false, 'device just deauthorized should come up as deauthorized');
+            t.equal(authorized, null, 'device just deauthorized should come up as deauthorized');
           });
         });
       });
