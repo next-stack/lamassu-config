@@ -2,7 +2,7 @@
 
 var test = require('tap').test;
 var LamassuConfig = require('../lib/main');
-var con = 'psql://lamassu:lamassu@localhost/lamassu';
+var con = 'psql://lamassu:lamassu@localhost/lamassu-test';
 
 
 test('Auth user - create an user & auth, next try auth an user isn\'t exist', function(t) {

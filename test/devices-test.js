@@ -2,7 +2,7 @@
 
 var test = require('tap').test
 var LamassuConfig = require('../lib/main');
-var con = 'psql://lamassu:lamassu@localhost/lamassu';
+var con = 'psql://lamassu:lamassu@localhost/lamassu-test';
 
 var authorized = 'CB:3D:78:49:03:39:BA:47:0A:33:29:3E:31:25:F7:C6:4F:74:71:D7';
 var duplicate = 'FF:EE:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99:4F:74:71:D7';
