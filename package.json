@@ -1,6 +1,6 @@
 {
   "name": "lamassu-config",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/lamassu/lamassu-config.git"
@@ -8,8 +8,7 @@
   "main": "lib/main",
   "dependencies": {
     "deepmerge": "~0.2.7",
-    "pg": "~2.11.0",
-    "async": "^0.2.10"
+    "pg": "~2.11.0"
   },
   "devDependencies": {
     "tap": "~0.4.8"
