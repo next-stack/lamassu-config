@@ -8,7 +8,7 @@
   "main": "lib/main",
   "dependencies": {
     "lodash": "^2.4.1",
-    "pg": "~2.11.0"
+    "pg": "^4.5.5"
   },
   "devDependencies": {
     "tap": "~0.4.8"
