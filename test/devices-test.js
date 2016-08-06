@@ -29,7 +29,7 @@ test('authorize and check authorization', function(t){
       config.isAuthorized(authorized, function (err, device) {
         t.equal(err, null, 'There should be no error when checking authorization');
         t.ok(device, 'device just authorized should come up as authorized');
-        t.equal(device.fingerprint, authorized);
+        t.equal(device.device_id, authorized);
 
         config.deauthorize(authorized, function(err) {
           t.equal(err, null, 'There should be no error when deauthorizing');
@@ -75,7 +75,7 @@ test('authorize and check authorization', function(t){
 
         config.pair(token, duplicate, 'baz', function (err) {
           t.ok(err, 'There should be an error when pairing a duplicate device');
-          t.equal(err.message, 'Device with this fingerprint already exists', 'There should be a human-readable error message');
+          t.equal(err.message, 'Device with this device id already exists', 'There should be a human-readable error message');
 
           config.deauthorize(duplicate, function (err) {
             t.equal(err, null, 'There should be no error when deauthorizing');
